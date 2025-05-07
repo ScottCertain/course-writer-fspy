@@ -1,2 +1,2 @@
 # course-writer-fspy
-Course Writer prototype - full-stack Python
+Course Writer prototype - full-stack Python (Streamlit)
