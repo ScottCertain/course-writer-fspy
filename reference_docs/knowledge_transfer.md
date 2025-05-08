@@ -32,6 +32,12 @@ The current implementation is based on the phases outlined in the implementation
 - Implementation in progress
 - Full integration with UI pending
 
+#### Phase 5: Testing Framework ✅
+- Comprehensive unit testing framework implemented
+- Integration tests for key components added
+- Centralized test logging system configured
+- Code coverage reporting implemented
+
 ### Prompt Templates Progress
 
 We have successfully implemented all core prompt templates needed for the lesson generation pipeline:
@@ -63,12 +69,19 @@ Each template uses the Anthropic Claude model with carefully tuned parameters fo
   - Model-specific parameter tuning
   - Template variable system for dynamic content
 
+- **Testing Framework**
+  - Unit tests for models and services
+  - Integration tests for pipeline components
+  - Centralized test logs in `test_logs/` directory
+  - Coverage reporting for code quality metrics
+
 ### Known Issues and Resolutions
 
 | Issue | Status | Resolution |
 |-------|--------|------------|
 | Streamlit API Change | Resolved | The project originally used `st.experimental_rerun()` which has been deprecated in newer Streamlit versions. Updated to use `st.rerun()` instead. |
 | Variable Format Differences | Pending | The prompt templates use `{{VARIABLE}}` format but the PromptService uses `$variable` format. Need to implement conversion or update one approach for consistency. |
+| Pipeline Integration Tests | Resolved | Fixed file path and naming convention issues in pipeline integration tests, ensuring proper test execution. |
 
 ## Next Steps
 
@@ -90,6 +103,11 @@ Each template uses the Anthropic Claude model with carefully tuned parameters fo
    - Implement progress tracking and visualization
    - Add file preview and editing capabilities
    - Create error recovery mechanisms
+
+4. **Enhance Test Coverage**
+   - Add unit tests for remaining services
+   - Create end-to-end tests for the entire generation pipeline
+   - Develop UI testing strategy
 
 ### Future Enhancements (Post-MVP)
 
@@ -131,7 +149,32 @@ The lesson generation pipeline will use a file-based approach:
 - Local LLMs through Ollama or LM Studio can be used without API keys
 - Environment variables are used for API key management
 
+### Testing Best Practices
+
+- Always use the pytest fixture system for test setup and teardown
+- Mock external services (especially LLM APIs) for reliable testing
+- Store all test logs in the centralized `test_logs/` directory
+- Run tests with coverage reporting to identify untested code paths
+- Use integration tests to verify component interactions
+
 ## Update History
+
+### 2025-05-08: Comprehensive Testing Framework Implementation
+- Implemented organized testing directory structure:
+  - Unit tests for models and services
+  - Integration tests for pipeline components
+  - Shared fixtures in conftest.py
+- Set up centralized test logging in `test_logs/` directory
+- Configured code coverage reporting with `.coveragerc`
+- Migrated standalone test scripts into organized framework:
+  - Pipeline integration tests
+  - Draft pipeline tests
+  - Lesson pipeline tests
+  - LLM configuration tests
+- Added detailed test documentation:
+  - Step-by-step guide for running tests
+  - Coverage reporting instructions
+  - Best practices for writing new tests
 
 ### 2025-05-08: Prompt Templates and Pipeline Architecture
 - Completed all core prompt templates for lesson generation:
