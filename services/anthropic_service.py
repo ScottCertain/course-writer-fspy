@@ -16,12 +16,13 @@ class AnthropicLLMService(LLMService):
         "claude-3-sonnet-20240229": 4096,
         "claude-3-haiku-20240307": 4096,
         "claude-3-opus-20240229": 4096,
+        "claude-3-7-sonnet-20250219": 4096,
         "claude-2.0": 100000,  # High value as fallback
         "claude-2.1": 100000,  # High value as fallback
     }
 
     def __init__(
-        self, api_key: Optional[str] = None, model: str = "claude-3-sonnet-20240229"
+        self, api_key: Optional[str] = None, model: str = "claude-3-7-sonnet-20250219"
     ):
         """
         Initialize Anthropic LLM service.
@@ -80,6 +81,7 @@ class AnthropicLLMService(LLMService):
             "Content-Type": "application/json",
             "x-api-key": self.api_key,
             "anthropic-version": "2023-06-01",
+            "anthropic-beta": "messages-2023-12-15",
         }
 
         # Payload format per Anthropic API specification
@@ -151,6 +153,7 @@ class AnthropicLLMService(LLMService):
             "Content-Type": "application/json",
             "x-api-key": self.api_key,
             "anthropic-version": "2023-06-01",
+            "anthropic-beta": "messages-2023-12-15",
         }
 
         # System goes at the top level, not as a message role

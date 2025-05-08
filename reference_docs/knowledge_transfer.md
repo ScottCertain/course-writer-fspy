@@ -159,6 +159,18 @@ The lesson generation pipeline will use a file-based approach:
 
 ## Update History
 
+### 2025-05-08: Service Cleanup and Consolidation
+- Identified and eliminated duplicate service files with `_fix` suffixes:
+  - Consolidated improvements from `anthropic_service_fix.py` into `anthropic_service.py`
+  - Added support for Claude 3.7 Sonnet model with proper headers
+  - Updated all test files and imports to use the standard service
+  - Removed redundant service files after preserving functionality
+- Created `test_learning_outcomes.py` script to validate the learning outcomes functionality:
+  - Implemented comprehensive testing of the LO generation process
+  - Added extraction logic to identify learning outcomes from LLM output
+  - Set up proper integration with the DraftPipeline
+- Updated service management to follow best practices with a single source of truth
+
 ### 2025-05-08: Comprehensive Testing Framework Implementation
 - Implemented organized testing directory structure:
   - Unit tests for models and services

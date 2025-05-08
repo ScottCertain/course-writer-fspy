@@ -9,8 +9,8 @@ import pytest
 import asyncio
 from unittest.mock import patch, MagicMock
 
-from services.pipeline_service_fix import FixedLessonPipeline as LessonPipeline
-from services.anthropic_service_fix import FixedAnthropicLLMService
+from services.pipeline_service import LessonPipeline
+from services.anthropic_service import AnthropicLLMService
 from services.file_service import FileService
 
 

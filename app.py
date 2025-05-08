@@ -5,6 +5,7 @@ import yaml
 from dotenv import load_dotenv
 
 from ui.course_ui import render_course_metadata, load_app_config
+from ui.learning_outcomes_ui import render_learning_outcomes
 from services.file_service import FileService
 
 # Configure logging
@@ -69,8 +70,7 @@ def main():
     if workflow_step == "Course Metadata":
         render_course_metadata()
     elif workflow_step == "Learning Outcomes":
-        # TODO: Implement lesson UI once completed
-        st.warning("Learning Outcomes UI not yet implemented")
+        render_learning_outcomes()
     else:  # Generate Content
         # TODO: Implement content generation UI once completed
         st.warning("Content Generation UI not yet implemented")

@@ -1,0 +1,13 @@
+number: 1
+title: Introduction to RAG Systems
+learning_outcomes:
+- 'LO: **Define RAG conceptually and architecturally**'
+- 'LO: **Analyze RAG''s benefits in modern software applications**'
+- 'LO: **Design and implement RAG systems in production environments**'
+- 'LO: **Evaluate and optimize RAG system performance**'
+- 'LO: **Apply best practices for RAG system security and governance**'
+has_shell: false
+has_rough_draft: false
+has_expanded_draft: false
+has_quizzes: false
+has_activities: false

@@ -4,9 +4,9 @@ import os
 import yaml
 import sys
 from datetime import datetime
-from services.pipeline_service_fix import FixedLessonPipeline
+from services.pipeline_service import LessonPipeline
 from services.file_service import FileService
-from services.anthropic_service_fix import FixedAnthropicLLMService
+from services.anthropic_service import AnthropicLLMService
 
 # Configure logging
 logging.basicConfig(
@@ -48,7 +48,7 @@ async def run_test(course_dir, lesson_id):
     }
 
     # Create the pipeline with explicit fixed Anthropic provider and model
-    pipeline = FixedLessonPipeline(
+    pipeline = LessonPipeline(
         course_dir=course_dir,
         lesson_id=lesson_id,
         llm_provider="anthropic",
@@ -130,7 +130,7 @@ async def test_fixed_anthropic_service():
     print("Testing fixed Anthropic service...")
 
     # Create a test instance with the updated model name
-    service = FixedAnthropicLLMService(model="claude-3-sonnet-20240229")
+    service = AnthropicLLMService(model="claude-3-sonnet-20240229")
 
     try:
         # Simple test prompt

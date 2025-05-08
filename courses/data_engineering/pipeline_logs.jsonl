@@ -1,0 +1,2 @@
+{"timestamp": "2025-05-08T17:13:22.790726", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T17:13:38.406114", "step": "learning_outcomes", "status": "error", "message": "Error: 404 Client Error: Not Found for url: https://api.anthropic.com/v1/messages"}

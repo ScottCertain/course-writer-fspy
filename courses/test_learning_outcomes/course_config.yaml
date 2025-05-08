@@ -1,0 +1,15 @@
+title: Test Learning Outcomes Course
+description: A test course for learning outcomes functionality
+target_audience: Software developers interested in AI
+language: English
+version: '1.0'
+author: Test Author
+skill_level: null
+prerequisites: null
+estimated_duration: null
+llm_config:
+  provider: anthropic
+  model: claude-3-7-sonnet-20250219
+  temperature: 0.7
+  max_tokens: 4000
+additional_llm_configs: []

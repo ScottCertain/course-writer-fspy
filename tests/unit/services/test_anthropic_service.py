@@ -7,23 +7,23 @@ import pytest
 from unittest.mock import patch, MagicMock
 import asyncio
 
-from services.anthropic_service_fix import FixedAnthropicLLMService
+# We already import the regular AnthropicLLMService
 from services.anthropic_service import AnthropicLLMService
 
 
-class TestFixedAnthropicLLMService:
-    """Tests for the FixedAnthropicLLMService class."""
+class TestAnthropicLLMService:
+    """Tests for the AnthropicLLMService class."""
 
     def test_init(self):
         """Test initialization with default parameters."""
-        service = FixedAnthropicLLMService(api_key="test_key")
+        service = AnthropicLLMService(api_key="test_key")
         assert service.api_key == "test_key"
         assert service.model == "claude-3-sonnet-20240229"
         assert service.base_url == "https://api.anthropic.com/v1/messages"
 
     def test_init_with_model(self):
         """Test initialization with a specific model."""
-        service = FixedAnthropicLLMService(
+        service = AnthropicLLMService(
             api_key="test_key", model="claude-3-haiku-20240307"
         )
         assert service.api_key == "test_key"
@@ -31,7 +31,7 @@ class TestFixedAnthropicLLMService:
 
     def test_check_token_limit(self):
         """Test token limit checking logic."""
-        service = FixedAnthropicLLMService(
+        service = AnthropicLLMService(
             api_key="test_key", model="claude-3-sonnet-20240229"
         )
 
@@ -56,7 +56,7 @@ class TestFixedAnthropicLLMService:
         mock_post.return_value = mock_response
 
         # Create service and call method
-        service = FixedAnthropicLLMService(api_key="test_key")
+        service = AnthropicLLMService(api_key="test_key")
         result = await service.generate_text(
             "Test prompt", temperature=0.5, max_tokens=100
         )
@@ -91,7 +91,7 @@ class TestFixedAnthropicLLMService:
         mock_post.return_value = mock_response
 
         # Create service and call method
-        service = FixedAnthropicLLMService(api_key="test_key")
+        service = AnthropicLLMService(api_key="test_key")
         result = await service.generate_with_context(
             "Test prompt", "Test context", temperature=0.5, max_tokens=100
         )
@@ -118,7 +118,7 @@ class TestFixedAnthropicLLMService:
         mock_post.return_value = mock_response
 
         # Create service and call method, expecting an exception
-        service = FixedAnthropicLLMService(api_key="test_key")
+        service = AnthropicLLMService(api_key="test_key")
         with pytest.raises(Exception, match="API Error"):
             await service.generate_text("Test prompt")
 

@@ -1,0 +1,5 @@
+{"timestamp": "2025-05-08T17:13:59.760279", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T17:14:15.194133", "step": "learning_outcomes", "status": "error", "message": "Error: 404 Client Error: Not Found for url: https://api.anthropic.com/v1/messages"}
+{"timestamp": "2025-05-08T17:19:58.060747", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T17:20:08.327753", "step": "learning_outcomes", "status": "warning", "message": "Validation issue: Output missing expected Learning Outcomes format"}
+{"timestamp": "2025-05-08T17:20:08.327753", "step": "learning_outcomes", "status": "success", "message": "Learning outcomes generated"}

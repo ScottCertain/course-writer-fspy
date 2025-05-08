@@ -9,7 +9,7 @@ from typing import Dict, Any, Optional, List, Tuple
 from services.llm_service_provider import LLMServiceProvider
 from services.prompt_service import PromptService
 from services.file_service import FileService
-from services.anthropic_service_fix import FixedAnthropicLLMService
+from services.anthropic_service import AnthropicLLMService
 from models.course import Course
 from models.lesson import Lesson
 
@@ -103,8 +103,8 @@ class DraftPipeline:
         # Get the LLM service - always use FixedAnthropicLLMService if provider is "anthropic"
         llm_service = None
         if self.llm_provider and self.llm_provider.lower() == "anthropic":
-            self.logger.info(f"Using fixed Anthropic service with model: {self.model}")
-            llm_service = FixedAnthropicLLMService(model=self.model)
+            self.logger.info(f"Using Anthropic service with model: {self.model}")
+            llm_service = AnthropicLLMService(model=self.model)
         else:
             # Use the regular service provider for other providers
             llm_service = self.llm_service_provider.get_llm_service(

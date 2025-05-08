@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 from services.pipeline_service import LessonPipeline
 from services.file_service import FileService
-from services.anthropic_service_fix import FixedAnthropicLLMService
+from services.anthropic_service import AnthropicLLMService
 from services.llm_service_provider import LLMServiceProvider
 
 # Configure logging
@@ -26,7 +26,7 @@ def fixed_create_llm_service(provider, model, api_key=None, *args, **kwargs):
     """Create a fixed version of the LLM service."""
     if provider.lower() == "anthropic":
         logger.info(f"Using fixed Anthropic service with model: {model}")
-        return FixedAnthropicLLMService(api_key=api_key, model=model)
+        return AnthropicLLMService(api_key=api_key, model=model)
     else:
         # Use the regular factory for other providers
         from services.llm_service import LLMServiceFactory
@@ -54,7 +54,7 @@ def fixed_get_llm_service(self, provider=None, model=None, api_key=None, base_ur
         logger.info(
             f"Creating fixed Anthropic LLM service: {model or 'claude-3-sonnet-20240229'}"
         )
-        return FixedAnthropicLLMService(
+        return AnthropicLLMService(
             api_key=api_key, model=model or "claude-3-sonnet-20240229"
         )
     else:
@@ -176,7 +176,7 @@ async def test_fixed_anthropic_service():
     print("Testing fixed Anthropic service...")
 
     # Create a test instance with the updated model name
-    service = FixedAnthropicLLMService(model="claude-3-sonnet-20240229")
+    service = AnthropicLLMService(model="claude-3-sonnet-20240229")
 
     try:
         # Simple test prompt

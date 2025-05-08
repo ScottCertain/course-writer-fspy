@@ -11,7 +11,7 @@ from datetime import datetime
 from unittest.mock import patch, MagicMock
 
 from services.draft_pipeline_service import DraftPipeline
-from services.anthropic_service_fix import FixedAnthropicLLMService
+from services.anthropic_service import AnthropicLLMService
 
 
 @pytest.mark.asyncio
