@@ -2,7 +2,7 @@
 
 This document tracks the status of the CourseSmith application over time, including development progress, known issues, and planned next steps. It serves as a continuous knowledge transfer resource for the project.
 
-## Current Status (2025-05-07)
+## Current Status (2025-05-08)
 
 ### Implementation Progress
 
@@ -26,10 +26,23 @@ The current implementation is based on the phases outlined in the implementation
 - Course metadata UI fully implemented
 - Lesson UI and content generation UI placeholders added
 
-#### Phase 4: Generation Pipeline 🔴
-- Not yet implemented
-- Lesson generation workflow planned but not implemented
-- Quiz and activity generation workflows planned but not implemented
+#### Phase 4: Generation Pipeline 🟡
+- Prompt templates for generation pipeline completed
+- Pipeline architecture designed
+- Implementation in progress
+- Full integration with UI pending
+
+### Prompt Templates Progress
+
+We have successfully implemented all core prompt templates needed for the lesson generation pipeline:
+
+- **LO Generator (Step 1)**: Creates detailed learning outcomes with key concepts and relevant software development parallels
+- **Lesson Shell (Step 2)**: Generates structured lesson outlines from learning outcomes
+- **Rough Draft (Step 3)**: Transforms lesson shells into initial content with developer-friendly tone
+- **Expanded Draft (Step 4)**: Enhances rough drafts with deeper explanations while preserving structure
+- **Intro & Conclusion (Step 5)**: Creates engaging bookend sections for the expanded content
+
+Each template uses the Anthropic Claude model with carefully tuned parameters for optimal results. The templates follow a consistent progression, with each step's output becoming the input for the next step.
 
 ### Working Features
 
@@ -43,28 +56,40 @@ The current implementation is based on the phases outlined in the implementation
   - File system operations for course storage
   - Prompt template system with variable substitution
   - LLM service abstraction layer
+  - Multi-provider support for LLM integration
+
+- **Prompt Templates**
+  - Standardized prompt formats for consistent results
+  - Model-specific parameter tuning
+  - Template variable system for dynamic content
 
 ### Known Issues and Resolutions
 
 | Issue | Status | Resolution |
 |-------|--------|------------|
 | Streamlit API Change | Resolved | The project originally used `st.experimental_rerun()` which has been deprecated in newer Streamlit versions. Updated to use `st.rerun()` instead. |
+| Variable Format Differences | Pending | The prompt templates use `{{VARIABLE}}` format but the PromptService uses `$variable` format. Need to implement conversion or update one approach for consistency. |
 
 ## Next Steps
 
 ### Immediate Priorities
 
-1. **Implement Lesson UI (ui/lesson_ui.py)**
-   - Create UI for entering and managing learning outcomes
-   - Implement lesson metadata management
+1. **Implement Lesson Pipeline**
+   - Create `LessonPipeline` class to orchestrate the generation process
+   - Implement step-by-step execution with proper error handling
+   - Add file-based persistence between steps
+   - Integrate with Streamlit UI
 
-2. **Implement Preview UI (ui/preview_ui.py)**
-   - Create Markdown preview component for generated content
-   - Add export functionality
+2. **Implement Learning Outcomes UI**
+   - Create UI for entering module name, lesson objective, and topics
+   - Implement form for submitting learning outcomes
+   - Add validation and preview capabilities
 
-3. **Implement Generation Workflows**
-   - Connect LLM services to generation workflow
-   - Implement step-by-step content generation process
+3. **Implement Content Generation Workflow**
+   - Connect the pipeline to the UI
+   - Implement progress tracking and visualization
+   - Add file preview and editing capabilities
+   - Create error recovery mechanisms
 
 ### Future Enhancements (Post-MVP)
 
@@ -76,6 +101,23 @@ As outlined in the PRD:
 - RAG-based prompt refinement
 
 ## Development Notes
+
+### LLM Error Handling Best Practices
+
+When communicating with LLM APIs, implement these error handling strategies:
+
+1. **Retry Logic with Exponential Backoff**: For transient errors like rate limits or network issues
+2. **Output Validation**: Verify that LLM outputs match expected formats and structure
+3. **Fallback Mechanisms**: Have backup models or providers if the primary one fails
+4. **Timeout Handling**: Set appropriate timeouts to prevent hanging requests
+5. **Comprehensive Logging**: Track all LLM interactions for debugging and improvement
+
+### File-Based Pipeline Architecture
+
+The lesson generation pipeline will use a file-based approach:
+- Each step writes its output to a markdown file in the lesson directory
+- Each subsequent step reads from the previous step's output file
+- This provides persistence, inspection capabilities, and restart options
 
 ### Streamlit Tips
 
@@ -90,6 +132,17 @@ As outlined in the PRD:
 - Environment variables are used for API key management
 
 ## Update History
+
+### 2025-05-08: Prompt Templates and Pipeline Architecture
+- Completed all core prompt templates for lesson generation:
+  - LO Generator (Step 1)
+  - Lesson Shell (Step 2)
+  - Rough Draft (Step 3)
+  - Expanded Draft (Step 4)
+  - Intro & Conclusion (Step 5)
+- Designed pipeline architecture for automated lesson generation
+- Updated API parameters for optimal results with Claude 3.7
+- Standardized template formats for consistency
 
 ### 2025-05-07: UI Enhancement with Tabs and Columns (Completed)
 - Completely redesigned the LLM configuration UI for a more intuitive experience:

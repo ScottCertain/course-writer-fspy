@@ -1,0 +1,4 @@
+{"timestamp": "2025-05-08T14:29:03.697191", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T14:29:19.136680", "step": "learning_outcomes", "status": "error", "message": "Error: 400 Client Error: Bad Request for url: https://api.anthropic.com/v1/messages"}
+{"timestamp": "2025-05-08T14:32:47.095867", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T14:33:02.591254", "step": "learning_outcomes", "status": "error", "message": "Error: 400 Client Error: Bad Request for url: https://api.anthropic.com/v1/messages"}

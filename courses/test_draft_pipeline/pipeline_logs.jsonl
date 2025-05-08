@@ -1,0 +1,10 @@
+{"timestamp": "2025-05-08T14:50:33.220794", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T14:50:44.397435", "step": "learning_outcomes", "status": "warning", "message": "Validation issue: Output missing expected Learning Outcomes format"}
+{"timestamp": "2025-05-08T14:50:44.397435", "step": "learning_outcomes", "status": "success", "message": "Learning outcomes generated"}
+{"timestamp": "2025-05-08T14:50:44.398941", "step": "lesson_shell", "status": "starting", "message": "Generating lesson shell"}
+{"timestamp": "2025-05-08T14:51:06.481702", "step": "lesson_shell", "status": "success", "message": "Lesson shell generated"}
+{"timestamp": "2025-05-08T14:51:06.481702", "step": "rough_draft", "status": "starting", "message": "Generating rough draft"}
+{"timestamp": "2025-05-08T14:52:08.038003", "step": "rough_draft", "status": "success", "message": "Rough draft generated"}
+{"timestamp": "2025-05-08T14:52:08.038003", "step": "expanded_draft", "status": "starting", "message": "Generating expanded draft"}
+{"timestamp": "2025-05-08T14:52:27.185624", "step": "expanded_draft", "status": "warning", "message": "Validation issue: Output missing expected expanded draft structure"}
+{"timestamp": "2025-05-08T14:52:27.185624", "step": "expanded_draft", "status": "success", "message": "Expanded draft generated"}

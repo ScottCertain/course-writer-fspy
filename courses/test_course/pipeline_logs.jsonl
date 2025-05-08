@@ -1,0 +1,4 @@
+{"timestamp": "2025-05-08T14:23:13.387620", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T14:23:13.387620", "step": "learning_outcomes", "status": "error", "message": "Error: Anthropic API key not found in environment variables"}
+{"timestamp": "2025-05-08T14:24:28.220691", "step": "learning_outcomes", "status": "starting", "message": "Generating learning outcomes"}
+{"timestamp": "2025-05-08T14:24:43.707481", "step": "learning_outcomes", "status": "error", "message": "Error: 404 Client Error: Not Found for url: https://api.anthropic.com/v1/messages"}
