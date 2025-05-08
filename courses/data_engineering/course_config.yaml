@@ -1,0 +1,25 @@
+title: Data Engineering
+description: 'Written for HTD, this course prepares Full-Stack Java graduates for
+  roles in Data Engineering. The course contains material in three components: Data
+  Literacy, Data Analytics, and Data Engineering.'
+target_audience: Junior to mid-level full-stack software developers.
+language: English
+version: '1.0'
+author: Scot Certain for HTD
+skill_level: Beginner
+prerequisites: Previous software development training or experience.
+estimated_duration: 9 weeks
+llm_config:
+  provider: anthropic
+  model: claude-3-7-sonnet
+  temperature: 0.3
+  max_tokens: 10000
+additional_llm_configs:
+- provider: lmstudio
+  model: gemma-3-12b-it-qat
+  temperature: 0.3
+  max_tokens: 4100
+- provider: ollama
+  model: gemma3:12b
+  temperature: 0.3
+  max_tokens: 10000
